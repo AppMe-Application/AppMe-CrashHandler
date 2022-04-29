@@ -1,0 +1,37 @@
+package com.appme.story.application;
+
+import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.content.Intent;
+import android.os.Bundle;
+
+import com.appme.story.R;
+import com.appme.story.engine.app.fragments.ApplicationFragment;
+
+public class ApplicationActivity extends AppCompatActivity {
+    
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme_Application);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_application);
+		
+		Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
+		setSupportActionBar(toolbar);
+        
+        switchFragment(ApplicationFragment.newInstance("This Is a Example Crash.Click Menu Test For Look Crash Handler..."));
+        
+    }
+    
+    public void switchFragment(Fragment fragment){
+        getSupportFragmentManager()
+        .beginTransaction()
+        .replace(R.id.content_frame, fragment)
+        .commit();
+    }
+    
+}
+/*don't forget to subscribe my YouTube channel for more Tutorial and mod*/
+/*
+https://youtube.com/channel/UC_lCMHEhEOFYgJL6fg1ZzQA */
